@@ -2,8 +2,24 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="logoloja.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Eucalyptus Store</title>
+<script>
+  const full = "Eucalyptus Store";
+  let ci = 0, deleting = false;
+  function typeTitle() {
+    if (!deleting) {
+      document.title = full.slice(0, ++ci);
+      if (ci === full.length) { deleting = true; }
+    } else {
+      document.title = full.slice(0, --ci);
+      if (ci === 0) { deleting = false; }
+    }
+    setTimeout(typeTitle, 450);
+  }
+  typeTitle();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -81,7 +97,6 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 #prods{padding:clamp(3rem,8vw,5rem) clamp(1.5rem,6vw,4rem);background:var(--paper);}
 .ptop{margin-bottom:2rem;}
 
-/* Seção separadora de categoria */
 .cat-section{margin-bottom:3rem;}
 .cat-label{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
 .cat-label span{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);}
@@ -103,15 +118,12 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 .padd{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid rgba(107,124,74,.38);color:var(--moss);padding:.42rem .82rem;cursor:none;border-radius:2px;transition:all .2s;white-space:nowrap;}
 .padd:hover{background:var(--moss);color:var(--cream);border-color:var(--moss);}
 
-/* Badge PACK */
 .pack-badge{position:absolute;top:.6rem;right:.6rem;background:var(--moss);color:var(--cream);font-family:var(--mono);font-size:.46rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.25rem .55rem;border-radius:2px;z-index:1;}
 .pack-badge.gold{background:var(--khaki);color:var(--forest);}
 
-/* Card de PACK tem destaque extra */
 .pc.is-pack{border:1px solid rgba(107,124,74,.35);}
 .pc.is-pack .pc-img{background:linear-gradient(135deg,var(--cream) 60%,rgba(107,124,74,.12));}
 
-/* Economia tag */
 .psave{display:inline-block;font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);border:1px solid rgba(107,124,74,.3);padding:.18rem .45rem;border-radius:2px;margin-bottom:.5rem;}
 
 @media(max-width:480px){
@@ -156,7 +168,7 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 /* CHECKOUT */
 #comod{position:fixed;inset:0;background:rgba(26,30,17,.85);z-index:3000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(6px);}
 #comod.on{opacity:1;pointer-events:all;}
-.mbox{background:var(--paper);border:1px solid rgba(107,124,74,.22);width:100%;max-width:440px;padding:clamp(1.4rem,4vw,2rem);border-radius:3px;box-shadow:0 24px 70px rgba(26,30,17,.35);}
+.mbox{background:var(--paper);border:1px solid rgba(107,124,74,.22);width:100%;max-width:440px;padding:clamp(1.4rem,4vw,2rem);border-radius:3px;box-shadow:0 24px 70px rgba(26,30,17,.35);max-height:90vh;overflow-y:auto;}
 .mbox h2{font-family:var(--serif);font-size:1.6rem;color:var(--forest);margin-bottom:1.2rem;line-height:1;}
 .mbox h2 em{font-style:italic;color:var(--olive);}
 .fg{margin-bottom:.82rem;}
@@ -169,6 +181,40 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 .bcancel:hover{border-color:var(--olive);color:var(--moss);}
 #conf-btn{flex:2;padding:.72rem;background:var(--moss);color:var(--cream);border:none;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:none;border-radius:2px;transition:all .2s;}
 #conf-btn:hover{background:var(--forest);}
+
+/* PIX MODAL */
+#pixmod{position:fixed;inset:0;background:rgba(26,30,17,.92);z-index:3500;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px);}
+#pixmod.on{opacity:1;pointer-events:all;}
+.pixbox{background:var(--paper);border:1px solid rgba(107,124,74,.3);width:100%;max-width:420px;padding:clamp(1.4rem,4vw,2rem);border-radius:3px;box-shadow:0 24px 80px rgba(26,30,17,.5);text-align:center;}
+.pixbox .pix-header{margin-bottom:1.2rem;}
+.pixbox .pix-header h2{font-family:var(--serif);font-size:1.5rem;color:var(--forest);line-height:1.1;}
+.pixbox .pix-header h2 em{font-style:italic;color:var(--olive);}
+.pixbox .pix-header p{font-size:.62rem;color:var(--silver);margin-top:.35rem;letter-spacing:.06em;}
+.pix-total-badge{display:inline-block;background:var(--forest);color:var(--sand);font-family:var(--mono);font-weight:700;font-size:1.1rem;letter-spacing:.04em;padding:.5rem 1.4rem;border-radius:2px;margin-bottom:1.2rem;}
+/* tabs */
+.pix-tabs{display:flex;gap:0;margin-bottom:1.2rem;border:1px solid rgba(107,124,74,.25);border-radius:2px;overflow:hidden;}
+.pix-tab{flex:1;padding:.55rem .5rem;background:none;border:none;font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);cursor:pointer;transition:all .2s;}
+.pix-tab.active{background:var(--moss);color:var(--cream);}
+.pix-tab:not(.active):hover{background:var(--cream);color:var(--moss);}
+/* qr panel */
+.pix-panel{display:none;}
+.pix-panel.active{display:block;}
+.qr-wrap{display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;width:180px;height:180px;background:white;border:1px solid rgba(107,124,74,.2);border-radius:3px;padding:8px;}
+.qr-wrap img{width:100%;height:100%;display:block;}
+.qr-hint{font-size:.6rem;color:var(--silver);line-height:1.7;margin-bottom:1rem;letter-spacing:.04em;}
+/* copy key panel */
+.pix-key-label{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin-bottom:.45rem;display:block;}
+.pix-key-box{display:flex;align-items:center;gap:.5rem;background:var(--cream);border:1px solid rgba(107,124,74,.25);border-radius:2px;padding:.55rem .75rem;margin-bottom:.6rem;}
+.pix-key-val{flex:1;font-family:var(--mono);font-size:.62rem;color:var(--forest);word-break:break-all;text-align:left;}
+#copy-key-btn{background:none;border:1px solid rgba(107,124,74,.35);color:var(--moss);font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .65rem;cursor:pointer;border-radius:2px;white-space:nowrap;transition:all .2s;flex-shrink:0;}
+#copy-key-btn:hover,#copy-key-btn.copied{background:var(--moss);color:var(--cream);border-color:var(--moss);}
+.pix-key-hint{font-size:.58rem;color:var(--silver);line-height:1.75;margin-bottom:1rem;letter-spacing:.03em;}
+/* info strip */
+.pix-info{display:flex;align-items:center;gap:.5rem;background:rgba(107,124,74,.08);border:1px solid rgba(107,124,74,.18);border-radius:2px;padding:.55rem .75rem;margin-bottom:1.1rem;text-align:left;}
+.pix-info .pii{font-size:1rem;flex-shrink:0;}
+.pix-info p{font-size:.56rem;color:var(--ash);line-height:1.65;}
+#pix-done-btn{width:100%;padding:.78rem;background:var(--moss);color:var(--cream);font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;border:none;border-radius:2px;transition:all .2s;}
+#pix-done-btn:hover{background:var(--forest);}
 
 /* SUCCESS */
 #okmod{position:fixed;inset:0;background:rgba(26,30,17,.88);z-index:4000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s;}
@@ -563,6 +609,7 @@ footer a:hover{color:var(--sand);opacity:1;}
   </div>
 </div>
 
+<!-- CHECKOUT MODAL -->
 <div id="comod">
   <div class="mbox">
     <h2>Dados do <em>comprador</em></h2>
@@ -570,7 +617,7 @@ footer a:hover{color:var(--sand);opacity:1;}
     <div class="fg"><label>E-mail *</label><input type="email" id="be" placeholder="seu@email.com" autocomplete="email"/></div>
     <div class="fg"><label>Telefone</label><input type="tel" id="bt" placeholder="(92) 99999-9999" autocomplete="tel"/></div>
     <div class="fg"><label>Pagamento</label>
-      <select id="bp">
+      <select id="bpay">
         <option value="PIX">PIX</option>
         <option value="Cartão de Crédito">Cartão de Crédito</option>
         <option value="Boleto">Boleto Bancário</option>
@@ -583,6 +630,52 @@ footer a:hover{color:var(--sand);opacity:1;}
   </div>
 </div>
 
+<!-- PIX MODAL -->
+<div id="pixmod">
+  <div class="pixbox">
+    <div class="pix-header">
+      <h2>Pagar via <em>PIX</em></h2>
+      <p>Escaneie o QR code ou copie a chave manualmente</p>
+    </div>
+    <div class="pix-total-badge" id="pix-total-display">R$ 0,00</div>
+    <div class="pix-tabs">
+      <button class="pix-tab active" id="tab-qr" onclick="switchPixTab('qr')">📷 QR Code</button>
+      <button class="pix-tab" id="tab-key" onclick="switchPixTab('key')">🔑 Copiar Chave</button>
+    </div>
+
+    <!-- QR Code panel -->
+    <div class="pix-panel active" id="panel-qr">
+      <div class="qr-wrap">
+        <img id="qr-img" src="" alt="QR Code PIX">
+      </div>
+      <p class="qr-hint">Abra o app do seu banco → PIX → Ler QR Code<br>e escaneie o código acima.</p>
+    </div>
+
+    <!-- Copy Key panel -->
+    <div class="pix-panel" id="panel-key">
+      <span class="pix-key-label">// chave PIX (e-mail)</span>
+      <div class="pix-key-box">
+        <span class="pix-key-val">anderson.lnoliveira@gmail.com</span>
+        <button id="copy-email-btn" onclick="copyPix('email')">Copiar</button>
+      </div>
+      <span class="pix-key-label" style="margin-top:.6rem;">// chave PIX (aleatória)</span>
+      <div class="pix-key-box">
+        <span class="pix-key-val">a6c03490-0643-41c0-aa1a-06dfdcc1ad14</span>
+        <button id="copy-key-btn" onclick="copyPix('uuid')">Copiar</button>
+      </div>
+      <p class="pix-key-hint">Cole a chave no app do seu banco em PIX → Transferir.<br>Informe o valor exato exibido acima.</p>
+    </div>
+
+    <div class="pix-info">
+      <span class="pii">ℹ️</span>
+      <p>Após o pagamento, envie o comprovante pelo WhatsApp ou e-mail. Seu pedido será confirmado em até 1h útil.</p>
+    </div>
+
+    <button id="pix-done-btn" onclick="confirmPixDone()">Já Paguei ✓</button>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
 <div id="okmod">
   <div class="okbox">
     <div class="ck">🌿</div>
@@ -594,7 +687,11 @@ footer a:hover{color:var(--sand);opacity:1;}
 
 <div id="toast"></div>
 
+<!-- QR Code lib (pure JS, no external API needed) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <script>
+// ── Cursor ──────────────────────────────────────────────
 const cur=document.getElementById('cur');
 document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
 document.querySelectorAll('a,button,input,select').forEach(el=>{
@@ -602,13 +699,16 @@ document.querySelectorAll('a,button,input,select').forEach(el=>{
   el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
 });
 
+// ── Scroll reveal ────────────────────────────────────────
 const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
 
+// ── Helpers ──────────────────────────────────────────────
 const brl=v=>'R$ '+v.toFixed(2).replace('.',',');
 const toastEl=document.getElementById('toast');
 function toast(m){toastEl.textContent=m;toastEl.classList.add('on');setTimeout(()=>toastEl.classList.remove('on'),2700);}
 
+// ── Cart ─────────────────────────────────────────────────
 let cart=[];
 function render(){
   const list=document.getElementById('clist');
@@ -646,35 +746,156 @@ function chq(id,d){const i=cart.find(x=>x.id===id);if(!i)return;i.qty+=d;if(i.qt
 function del(id){cart=cart.filter(x=>x.id!==id);render();}
 document.querySelectorAll('.padd').forEach(b=>{b.addEventListener('click',()=>addCart(b.dataset.n,b.dataset.p,b.dataset.e));});
 
+// ── Cart panel ───────────────────────────────────────────
 const cov=document.getElementById('cov'),cpanel=document.getElementById('cpanel');
 document.getElementById('cart-btn').addEventListener('click',()=>{cov.classList.add('on');cpanel.classList.add('on');});
 function closeCart(){cov.classList.remove('on');cpanel.classList.remove('on');}
 document.getElementById('close-cart').addEventListener('click',closeCart);
 cov.addEventListener('click',closeCart);
 
+// ── Checkout ─────────────────────────────────────────────
 document.getElementById('chk-btn').addEventListener('click',()=>{closeCart();document.getElementById('comod').classList.add('on');});
 document.getElementById('cancel-co').addEventListener('click',()=>document.getElementById('comod').classList.remove('on'));
 
-document.getElementById('conf-btn').addEventListener('click',async()=>{
-  const name=document.getElementById('bn').value.trim();
-  const email=document.getElementById('be').value.trim();
-  const pay=document.getElementById('bp').value;
-  if(!name||!email){toast('⚠ Preencha nome e e-mail');return;}
-  const now=new Date().toLocaleString('pt-BR',{timeZone:'America/Manaus'});
-  const sum=cart.reduce((a,i)=>a+i.p*i.qty,0);
-  const items=cart.map(i=>`• ${i.e} ${i.n} x${i.qty} - ${brl(i.p*i.qty)}`).join(' | ');
-  const msg=`🌿 EUCALYPTUS STORE - NOVA VENDA | Comprador: ${name} | Email: ${email} | Horario: ${now} | Pagamento: ${pay} | Itens: ${items} | TOTAL: ${brl(sum)}`;
-  const phone='559284098257';
-  const key='2126703';
-  const url=`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encodeURIComponent(msg)}&apikey=${key}`;
-  try{await fetch(url,{mode:'no-cors'});}catch(e){}
-  document.getElementById('comod').classList.remove('on');
-  document.getElementById('okmsg').textContent=`Obrigado, ${name}.\nPedido de ${brl(sum)} confirmado via ${pay}.\nO lojista foi notificado.`;
+// PIX chave aleatória para o comprador escanear (e-mail como chave)
+const PIX_EMAIL = 'anderson.lnoliveira@gmail.com';
+const PIX_UUID  = 'a6c03490-0643-41c0-aa1a-06dfdcc1ad14';
+
+// Gera payload PIX BR Code (EMV)
+function buildPixPayload(key, merchantName, merchantCity, amount) {
+  function tlv(id, val){ const len=String(val.length).padStart(2,'0'); return id+len+val; }
+  const mai = tlv('00','BR.GOV.BCB.PIX') + tlv('01', key);
+  const addInfo = tlv('05','Eucalyptus Store');
+  const amt = amount.toFixed(2);
+  let payload =
+    tlv('00','01') +
+    tlv('26', mai) +
+    tlv('52','0000') +
+    tlv('53','986') +
+    tlv('54', amt) +
+    tlv('58','BR') +
+    tlv('59', merchantName.substring(0,25)) +
+    tlv('60', merchantCity.substring(0,15)) +
+    tlv('62', tlv('05','***') + addInfo) +
+    '6304';
+  // CRC16-CCITT
+  let crc=0xFFFF;
+  for(let i=0;i<payload.length;i++){
+    crc^=payload.charCodeAt(i)<<8;
+    for(let j=0;j<8;j++) crc=(crc&0x8000)?(crc<<1)^0x1021:(crc<<1);
+  }
+  crc&=0xFFFF;
+  return payload+crc.toString(16).toUpperCase().padStart(4,'0');
+}
+
+let qrInstance = null;
+
+function openPixModal(total){
+  document.getElementById('pix-total-display').textContent = brl(total);
+
+  // Build PIX payload with email key
+  const payload = buildPixPayload(PIX_EMAIL, 'Eucalyptus Store', 'Manaus', total);
+
+  // Generate QR using QRCodeJS into a canvas, then convert to img src
+  const qrImg = document.getElementById('qr-img');
+  const tmpDiv = document.createElement('div');
+  tmpDiv.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+  document.body.appendChild(tmpDiv);
+
+  if(qrInstance){ try{qrInstance.clear();}catch(e){} }
+  qrInstance = new QRCode(tmpDiv, {
+    text: payload,
+    width: 164,
+    height: 164,
+    colorDark: '#2a3621',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+
+  // Wait a tick for canvas render
+  setTimeout(()=>{
+    const canvas = tmpDiv.querySelector('canvas');
+    if(canvas){ qrImg.src = canvas.toDataURL('image/png'); }
+    document.body.removeChild(tmpDiv);
+  }, 80);
+
+  // Reset tabs
+  switchPixTab('qr');
+  document.getElementById('pixmod').classList.add('on');
+}
+
+function switchPixTab(tab){
+  document.getElementById('tab-qr').classList.toggle('active', tab==='qr');
+  document.getElementById('tab-key').classList.toggle('active', tab==='key');
+  document.getElementById('panel-qr').classList.toggle('active', tab==='qr');
+  document.getElementById('panel-key').classList.toggle('active', tab==='key');
+}
+
+function copyPix(type){
+  const val = type==='email' ? PIX_EMAIL : PIX_UUID;
+  const btnId = type==='email' ? 'copy-email-btn' : 'copy-key-btn';
+  navigator.clipboard.writeText(val).then(()=>{
+    const btn = document.getElementById(btnId);
+    const prev = btn.textContent;
+    btn.textContent='Copiado ✓';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent=prev;btn.classList.remove('copied');}, 2000);
+    toast('Chave PIX copiada ✓');
+  }).catch(()=>{
+    // Fallback for browsers without clipboard API
+    const ta=document.createElement('textarea');
+    ta.value=val; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    toast('Chave PIX copiada ✓');
+  });
+}
+
+function confirmPixDone(){
+  document.getElementById('pixmod').classList.remove('on');
   document.getElementById('okmod').classList.add('on');
-  cart=[];render();
+}
+
+// ── Confirm order ─────────────────────────────────────────
+document.getElementById('conf-btn').addEventListener('click', async()=>{
+  const name  = document.getElementById('bn').value.trim();
+  const email = document.getElementById('be').value.trim();
+  const pay   = document.getElementById('bpay').value;
+  if(!name||!email){toast('⚠ Preencha nome e e-mail');return;}
+
+  const now  = new Date().toLocaleString('pt-BR',{timeZone:'America/Manaus'});
+  const sum  = cart.reduce((a,i)=>a+i.p*i.qty,0);
+  const items= cart.map(i=>`• ${i.e} ${i.n} x${i.qty} - ${brl(i.p*i.qty)}`).join(' | ');
+  const msg  = `🌿 EUCALYPTUS STORE - NOVA VENDA | Comprador: ${name} | Email: ${email} | Horario: ${now} | Pagamento: ${pay} | Itens: ${items} | TOTAL: ${brl(sum)}`;
+
+  // Notify via WhatsApp / CallMeBot
+  const phone='559284098257', key='2126703';
+  try{await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${encodeURIComponent(msg)}&apikey=${key}`,{mode:'no-cors'});}catch(e){}
+
+  document.getElementById('comod').classList.remove('on');
+
+  if(pay==='PIX'){
+    // Show PIX payment screen
+    openPixModal(sum);
+    // Store buyer info for success message
+    window._pendingOrder = {name, sum, pay};
+    // Clear cart silently (success shown after "Já Paguei")
+    cart=[];render();
+  } else {
+    // Non-PIX: show success directly
+    document.getElementById('okmsg').textContent=`Obrigado, ${name}.\nPedido de ${brl(sum)} confirmado via ${pay}.\nO lojista foi notificado.`;
+    document.getElementById('okmod').classList.add('on');
+    cart=[];render();
+  }
 });
+
+function confirmPixDone(){
+  document.getElementById('pixmod').classList.remove('on');
+  const o = window._pendingOrder || {};
+  document.getElementById('okmsg').textContent=`Obrigado${o.name?', '+o.name:''}.\nPedido de ${o.sum?brl(o.sum):'—'} via PIX.\nEnvie o comprovante pelo WhatsApp.\nO lojista confirmará em até 1h útil.`;
+  document.getElementById('okmod').classList.add('on');
+}
+
 document.getElementById('ok-close').addEventListener('click',()=>document.getElementById('okmod').classList.remove('on'));
 </script>
 </body>
-
 </html>
