@@ -88,12 +88,12 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 .vibe-row{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;}
 @media(max-width:720px){.vibe-row{grid-template-columns:1fr;}}
 .vibe-slogan img{width:100%;height:auto;display:block;}
-.vframe{width:100%;max-width:820px;aspect-ratio:16/9;border:1px solid rgba(107,124,74,.25);overflow:hidden;border-radius:3px;box-shadow:0 14px 50px rgba(42,54,33,.2);background:var(--forest);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;}
-.vframe-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;padding:2rem;text-align:center;}
-.vframe-play{width:64px;height:64px;border-radius:50%;border:2px solid rgba(181,169,122,.4);display:flex;align-items:center;justify-content:center;color:var(--sand);opacity:.6;}
-.vframe-play svg{margin-left:4px;}
-.vframe-label{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--khaki);opacity:.5;}
-.vframe-sub{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);opacity:.4;}
+.vframe{width:100%;max-width:820px;aspect-ratio:16/9;border:1px solid rgba(107,124,74,.25);overflow:hidden;border-radius:3px;box-shadow:0 14px 50px rgba(42,54,33,.2);background:var(--forest);display:flex;align-items:center;justify-content:center;}
+.vframe-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;padding:2rem;text-align:center;width:100%;height:100%;}
+.vframe-play{width:88px;height:88px;border-radius:50%;border:2px solid rgba(181,169,122,.3);display:flex;align-items:center;justify-content:center;color:var(--sand);opacity:.45;}
+.vframe-play svg{margin-left:6px;}
+.vframe-label{font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,2rem);color:var(--sand);opacity:.5;line-height:1.15;}
+.vframe-sub{font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--khaki);opacity:.3;}
 
 #prods{padding:clamp(3rem,8vw,5rem) clamp(1.5rem,6vw,4rem);background:var(--paper);}
 .ptop{margin-bottom:2rem;}
@@ -110,8 +110,7 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 .pc:hover .pc-img{transform:scale(1.04);}
 .pbody{padding:1rem 1rem 1.1rem;}
 .pcat{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin-bottom:.28rem;display:block;}
-.pname{font-family:var(--mono);font-weight:600;font-size:.84rem;color:var(--forest);letter-spacing:.02em;margin-bottom:.3rem;line-height:1.3;}
-.pdesc{font-size:.7rem;color:var(--silver);line-height:1.75;margin-bottom:.9rem;}
+.pname{font-family:var(--mono);font-weight:600;font-size:.84rem;color:var(--forest);letter-spacing:.02em;margin-bottom:.7rem;line-height:1.3;}
 .pfoot{display:flex;align-items:center;justify-content:space-between;gap:.4rem;}
 .pprice{font-family:var(--mono);font-weight:700;font-size:.98rem;color:var(--forest);}
 .pprice small{font-size:.64rem;color:var(--silver);font-weight:300;}
@@ -129,7 +128,6 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 
 @media(max-width:480px){
   .pgrid{grid-template-columns:1fr 1fr;}
-  .pdesc{display:none;}
   .pprice{font-size:.84rem;}
   .padd{font-size:.5rem;padding:.36rem .55rem;}
 }
@@ -172,9 +170,8 @@ h1.title .it{font-style:italic;color:var(--sand);display:block;}
 .mbox h2 em{font-style:italic;color:var(--olive);}
 .fg{margin-bottom:.82rem;}
 .fg label{display:block;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-bottom:.34rem;}
-.fg input,.fg select{width:100%;background:var(--cream);border:1px solid rgba(107,124,74,.22);color:var(--forest);font-family:var(--mono);font-size:.78rem;padding:.6rem .8rem;outline:none;border-radius:2px;transition:border-color .2s;}
-.fg input:focus,.fg select:focus{border-color:var(--olive);}
-.fg select option{background:var(--paper);}
+.fg input{width:100%;background:var(--cream);border:1px solid rgba(107,124,74,.22);color:var(--forest);font-family:var(--mono);font-size:.78rem;padding:.6rem .8rem;outline:none;border-radius:2px;transition:border-color .2s;}
+.fg input:focus{border-color:var(--olive);}
 .macts{display:flex;gap:.7rem;margin-top:1.2rem;}
 .bcancel{flex:1;padding:.72rem;background:none;border:1px solid rgba(107,124,74,.22);color:var(--silver);font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;cursor:none;border-radius:2px;transition:all .2s;}
 .bcancel:hover{border-color:var(--olive);color:var(--moss);}
@@ -301,7 +298,7 @@ footer a:hover{color:var(--sand);opacity:1;}
     <div class="vframe rev">
       <div class="vframe-placeholder">
         <div class="vframe-play">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
         <p class="vframe-label">Vídeo da Eucalyptus Store</p>
         <p class="vframe-sub">em breve</p>
@@ -325,10 +322,9 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// unitário</span>
           <p class="pname">Camisa Estampada</p>
-          <p class="pdesc">100% algodão. Estampa exclusiva. Corte unissex.</p>
           <div class="pfoot">
-            <p class="pprice">R$ 75<small>,00</small></p>
-            <button class="padd" data-n="Camisa Estampada" data-p="75.00" data-e="👕">+ add</button>
+            <p class="pprice">R$ 74<small>,90</small></p>
+            <button class="padd" data-n="Camisa Estampada" data-p="74.90" data-e="👕">+ add</button>
           </div>
         </div>
       </div>
@@ -341,13 +337,12 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// pack camisas</span>
           <p class="pname">Pack 2 Camisas</p>
-          <span class="psave">economia de R$ 10,00</span>
-          <p class="pdesc">2 camisas estampadas à sua escolha.</p>
+          <span class="psave">economia de R$ 9,90</span>
           <div class="pfoot">
             <div>
-              <p class="pprice"><span class="old">R$ 150,00</span>R$ 140<small>,00</small></p>
+              <p class="pprice"><span class="old">R$ 149,80</span>R$ 139<small>,90</small></p>
             </div>
-            <button class="padd" data-n="Pack 2 Camisas" data-p="140.00" data-e="👕">+ add</button>
+            <button class="padd" data-n="Pack 2 Camisas" data-p="139.90" data-e="👕">+ add</button>
           </div>
         </div>
       </div>
@@ -360,13 +355,12 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// kit camisas</span>
           <p class="pname">Kit 3 Camisas</p>
-          <span class="psave">economia de R$ 30,00</span>
-          <p class="pdesc">3 camisas estampadas. Ótimo para presentear.</p>
+          <span class="psave">economia de R$ 29,80</span>
           <div class="pfoot">
             <div>
-              <p class="pprice"><span class="old">R$ 225,00</span>R$ 195<small>,00</small></p>
+              <p class="pprice"><span class="old">R$ 224,70</span>R$ 194<small>,90</small></p>
             </div>
-            <button class="padd" data-n="Kit 3 Camisas" data-p="195.00" data-e="👕">+ add</button>
+            <button class="padd" data-n="Kit 3 Camisas" data-p="194.90" data-e="👕">+ add</button>
           </div>
         </div>
       </div>
@@ -383,10 +377,9 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// unitário</span>
           <p class="pname">Pulseira de Miçanga</p>
-          <p class="pdesc">Miçanga colorida. Feita à mão. Tamanho único ajustável.</p>
           <div class="pfoot">
-            <p class="pprice">R$ 12<small>,00</small></p>
-            <button class="padd" data-n="Pulseira de Miçanga" data-p="12.00" data-e="📿">+ add</button>
+            <p class="pprice">R$ 11<small>,90</small></p>
+            <button class="padd" data-n="Pulseira de Miçanga" data-p="11.90" data-e="📿">+ add</button>
           </div>
         </div>
       </div>
@@ -399,13 +392,12 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// pack pulseiras</span>
           <p class="pname">Pack 3 Pulseiras</p>
-          <span class="psave">economia de R$ 4,00</span>
-          <p class="pdesc">3 pulseiras de miçanga sortidas.</p>
+          <span class="psave">economia de R$ 4,80</span>
           <div class="pfoot">
             <div>
-              <p class="pprice"><span class="old">R$ 36,00</span>R$ 32<small>,00</small></p>
+              <p class="pprice"><span class="old">R$ 35,70</span>R$ 30<small>,90</small></p>
             </div>
-            <button class="padd" data-n="Pack 3 Pulseiras" data-p="32.00" data-e="📿">+ add</button>
+            <button class="padd" data-n="Pack 3 Pulseiras" data-p="30.90" data-e="📿">+ add</button>
           </div>
         </div>
       </div>
@@ -418,13 +410,12 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// kit pulseiras</span>
           <p class="pname">Kit 5 Pulseiras</p>
-          <span class="psave">economia de R$ 10,00</span>
-          <p class="pdesc">5 pulseiras de miçanga. Cores variadas.</p>
+          <span class="psave">economia de R$ 9,60</span>
           <div class="pfoot">
             <div>
-              <p class="pprice"><span class="old">R$ 60,00</span>R$ 50<small>,00</small></p>
+              <p class="pprice"><span class="old">R$ 59,50</span>R$ 49<small>,90</small></p>
             </div>
-            <button class="padd" data-n="Kit 5 Pulseiras" data-p="50.00" data-e="📿">+ add</button>
+            <button class="padd" data-n="Kit 5 Pulseiras" data-p="49.90" data-e="📿">+ add</button>
           </div>
         </div>
       </div>
@@ -441,7 +432,6 @@ footer a:hover{color:var(--sand);opacity:1;}
         <div class="pbody">
           <span class="pcat">// unitário</span>
           <p class="pname">Marca-página</p>
-          <p class="pdesc">Papel 300g. Ilustração exclusiva. Plastificado.</p>
           <div class="pfoot">
             <p class="pprice">R$ 3<small>,90</small></p>
             <button class="padd" data-n="Marca-página" data-p="3.90" data-e="🔖">+ add</button>
@@ -458,7 +448,6 @@ footer a:hover{color:var(--sand);opacity:1;}
           <span class="pcat">// pack marca-páginas</span>
           <p class="pname">Pack 3 Marca-páginas</p>
           <span class="psave">economia de R$ 1,80</span>
-          <p class="pdesc">3 marca-páginas com ilustrações diferentes.</p>
           <div class="pfoot">
             <div>
               <p class="pprice"><span class="old">R$ 11,70</span>R$ 9<small>,90</small></p>
@@ -477,7 +466,6 @@ footer a:hover{color:var(--sand);opacity:1;}
           <span class="pcat">// kit marca-páginas</span>
           <p class="pname">Kit 5 Marca-páginas</p>
           <span class="psave">economia de R$ 2,60</span>
-          <p class="pdesc">5 marca-páginas com ilustrações da Eucalyptus.</p>
           <div class="pfoot">
             <div>
               <p class="pprice"><span class="old">R$ 19,50</span>R$ 16<small>,90</small></p>
@@ -517,9 +505,8 @@ footer a:hover{color:var(--sand);opacity:1;}
     <div>
       <h4>Contato</h4>
       <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">WhatsApp</a></li>
-        <li><a href="#">E-mail</a></li>
+        <!-- Troque SEU_PERFIL pelo @ do Instagram sem o @, ex: eucalyptusstore -->
+        <li><a href="https://instagram.com/SEU_PERFIL" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
     </div>
   </div>
@@ -592,7 +579,7 @@ footer a:hover{color:var(--sand);opacity:1;}
 
     <div class="pix-info">
       <span class="pii">ℹ️</span>
-      <p>Após o pagamento, envie o comprovante pelo WhatsApp ou e-mail.</p>
+      <p>Após o pagamento, envie o comprovante pelo Instagram.</p>
     </div>
 
     <button id="pix-done-btn" onclick="confirmPixDone()">Já Paguei ✓</button>
@@ -789,7 +776,7 @@ function copyPix(type) {
 function confirmPixDone() {
   document.getElementById('pixmod').classList.remove('on');
   const o = window._pendingOrder || {};
-  document.getElementById('okmsg').textContent = `Obrigado${o.name ? ', ' + o.name : ''}.\nPedido de ${o.sum ? brl(o.sum) : '—'} via PIX.\nEnvie o comprovante pelo WhatsApp ou e-mail.`;
+  document.getElementById('okmsg').textContent = `Obrigado${o.name ? ', ' + o.name : ''}.\nPedido de ${o.sum ? brl(o.sum) : '—'} via PIX.\nEnvie o comprovante pelo Instagram.`;
   document.getElementById('okmod').classList.add('on');
 }
 
